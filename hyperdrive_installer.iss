@@ -31,7 +31,7 @@ Name: "{commondesktop}\HyperDrive"; Filename: "{app}\HyperDrive.exe"
 
 [Run]
 ; Install Ollama silently in the background
-Filename: "{tmp}\OllamaSetup.exe"; Parameters: "/silent /verysilent /sp- /norestart"; StatusMsg: "Installing Ollama AI Core (this may take a few seconds)..."; Flags: runhidden
+Filename: "{tmp}\OllamaSetup.exe"; Parameters: "/silent /verysilent /sp- /norestart"; StatusMsg: "Installing Ollama AI Core (this may take a few seconds)..."; Flags: runhidden nowait
 
 ; Run HyperDrive post-install
 Filename: "{app}\HyperDrive.exe"; Description: "Launch HyperDrive Code Editor"; Flags: nowait postinstall skipifsilent
