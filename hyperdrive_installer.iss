@@ -23,7 +23,7 @@ Source: "smooth_engine.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "OllamaSetup.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall
 
 ; Offline Ollama Models - Copies sha256 blobs and manifests to target user profile
-Source: "{%USERPROFILE}\.ollama\models\*"; DestDir: "{%USERPROFILE}\.ollama\models"; Flags: recursesubdirs createallsubdirs ignoreversion
+Source: "{#sysgetenv('USERPROFILE')}\.ollama\models\*"; DestDir: "{%USERPROFILE}\.ollama\models"; Flags: recursesubdirs createallsubdirs ignoreversion
 
 [Icons]
 Name: "{group}\HyperDrive"; Filename: "{app}\HyperDrive.exe"
