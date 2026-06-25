@@ -11,8 +11,10 @@ out/
 bin/
 *.exe
 *.dll
+!smooth_engine.dll
 *.pdb
 *.spec
+!HyperDrive.spec
 
 # Python cache & virtualenv
 __pycache__/
