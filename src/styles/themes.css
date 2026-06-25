@@ -1,0 +1,107 @@
+/* ============================================================
+   HyperDrive Theme Switcher Classes
+   Sets CSS custom property tokens dynamically on the body.
+   ============================================================ */
+
+/* ── Neon Blue Theme (Default) ────────────────────────── */
+body.theme-neon-blue {
+  --bg-void:        #080a0e;
+  --bg-base:        #0d0f14;
+  --bg-panel:       #111418;
+  --bg-elevated:    #161b22;
+  --bg-hover:       #1e2430;
+  --bg-active:      #252d3d;
+  --bg-input:       #1a1f2a;
+  
+  --text-primary:   #e8eaf0;
+  --text-secondary: #8b95a8;
+  --text-muted:     #4a5568;
+  
+  --accent-primary: #00f0ff; /* Neon cyan */
+  --accent-secondary: #7c5cfc;
+  --border-accent:  rgba(0, 240, 255, 0.4);
+  --glow-primary:   0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+/* ── White Light Theme ───────────────────────────────── */
+body.theme-white-light {
+  --bg-void:        #f1f3f6;
+  --bg-base:        #ffffff;
+  --bg-panel:       #f6f8fa;
+  --bg-elevated:    #ffffff;
+  --bg-hover:       #eaeef2;
+  --bg-active:      #e1e5e9;
+  --bg-input:       #ffffff;
+  
+  --text-primary:   #24292f;
+  --text-secondary: #57606a;
+  --text-muted:     #8c959f;
+  
+  --accent-primary: #0969da; /* Classic Blue link */
+  --accent-secondary: #8250df;
+  --border-accent:  rgba(9, 105, 218, 0.4);
+  --glow-primary:   0 0 8px rgba(9, 105, 218, 0.15);
+  
+  --scrollbar-thumb:      rgba(0, 0, 0, 0.12);
+  --scrollbar-thumb-hover:rgba(0, 0, 0, 0.22);
+}
+
+/* ── Black Terminal Theme ────────────────────────────── */
+body.theme-black-terminal {
+  --bg-void:        #000000;
+  --bg-base:        #000000;
+  --bg-panel:       #0d0d0d;
+  --bg-elevated:    #121212;
+  --bg-hover:       #1a1a1a;
+  --bg-active:      #262626;
+  --bg-input:       #000000;
+  
+  --text-primary:   #00ff00; /* Green phosphor terminal text */
+  --text-secondary: #00cc00;
+  --text-muted:     #006600;
+  
+  --accent-primary: #00ff00;
+  --accent-secondary: #00ff88;
+  --border-accent:  rgba(0, 255, 0, 0.4);
+  --glow-primary:   0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+/* ── GitHub Dark Theme ───────────────────────────────── */
+body.theme-github-dark {
+  --bg-void:        #0d1117;
+  --bg-base:        #0d1117;
+  --bg-panel:       #161b22;
+  --bg-elevated:    #21262d;
+  --bg-hover:       #30363d;
+  --bg-active:      #38414a;
+  --bg-input:       #0d1117;
+  
+  --text-primary:   #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted:     #484f58;
+  
+  --accent-primary: #58a6ff; /* GitHub Dark Blue */
+  --accent-secondary: #bc8cff;
+  --border-accent:  rgba(88, 166, 255, 0.4);
+  --glow-primary:   0 0 8px rgba(88, 166, 255, 0.2);
+}
+
+/* ── VS Code Dark Theme ──────────────────────────────── */
+body.theme-vscode-dark {
+  --bg-void:        #181818;
+  --bg-base:        #1e1e1e;
+  --bg-panel:       #252526;
+  --bg-elevated:    #3c3c3c;
+  --bg-hover:       #2a2d2e;
+  --bg-active:      #37373d;
+  --bg-input:       #3c3c3c;
+  
+  --text-primary:   #cccccc;
+  --text-secondary: #969696;
+  --text-muted:     #6b6b6b;
+  
+  --accent-primary: #007acc; /* VS Code Default Blue */
+  --accent-secondary: #c586c0;
+  --border-accent:  rgba(0, 122, 204, 0.4);
+  --glow-primary:   0 0 8px rgba(0, 122, 204, 0.2);
+}

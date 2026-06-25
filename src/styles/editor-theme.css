@@ -1,0 +1,205 @@
+/* ============================================================
+   HyperDrive — CodeMirror 6 Editor Theme
+   Premium dark: charcoal base + neon syntax colors
+   ============================================================ */
+
+/* ── Editor Container ─────────────────────────────────────── */
+.cm-editor {
+  height: 100%;
+  font-family: var(--font-mono) !important;
+  font-size: 13.5px;
+  line-height: var(--line-height-code);
+  background: var(--bg-base) !important;
+  color: var(--text-primary) !important;
+  caret-color: var(--accent-primary);
+}
+
+.cm-editor.cm-focused {
+  outline: none !important;
+}
+
+/* ── Scroller / Content ──────────────────────────────────── */
+.cm-scroller {
+  font-family: var(--font-mono) !important;
+  line-height: inherit !important;
+  overflow: auto !important;
+}
+.cm-content {
+  padding: 8px 0 !important;
+  caret-color: var(--accent-primary) !important;
+}
+
+/* ── Gutters ─────────────────────────────────────────────── */
+.cm-gutters {
+  background: var(--bg-base) !important;
+  border-right: 1px solid var(--border-subtle) !important;
+  color: var(--text-muted) !important;
+  font-size: var(--font-size-xs) !important;
+  min-width: 48px;
+}
+.cm-lineNumbers .cm-gutterElement {
+  padding: 0 8px 0 12px !important;
+  font-variant-numeric: tabular-nums;
+}
+.cm-activeLineGutter {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+}
+
+/* ── Line Highlighting ───────────────────────────────────── */
+.cm-activeLine {
+  background: rgba(255, 255, 255, 0.035) !important;
+}
+.cm-selectionBackground,
+.cm-focused .cm-selectionBackground {
+  background: rgba(0, 212, 170, 0.18) !important;
+}
+.cm-selectionMatch {
+  background: rgba(0, 212, 170, 0.1) !important;
+  border-bottom: 1px solid rgba(0, 212, 170, 0.3);
+}
+
+/* ── Cursor ──────────────────────────────────────────────── */
+.cm-cursor, .cm-dropCursor {
+  border-left: 2px solid var(--accent-primary) !important;
+  border-radius: 1px;
+}
+.cm-focused .cm-cursor {
+  animation: cursor-blink 1s steps(1) infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Search Match ────────────────────────────────────────── */
+.cm-searchMatch {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  border-radius: 2px;
+}
+.cm-searchMatch.cm-searchMatch-selected {
+  background: rgba(245, 158, 11, 0.5) !important;
+}
+
+/* ── Git Gutter Indicators ───────────────────────────────── */
+.cm-gutter-git { width: 3px; }
+.cm-git-added    { background: var(--git-added); }
+.cm-git-modified { background: var(--git-modified); }
+.cm-git-deleted  {
+  background: var(--git-deleted);
+  width: 0;
+  border-bottom: 5px solid var(--git-deleted);
+  margin-top: -5px;
+}
+
+/* ── Folding Gutter ──────────────────────────────────────── */
+.cm-foldGutter .cm-gutterElement {
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+.cm-foldGutter .cm-gutterElement:hover {
+  color: var(--text-secondary);
+}
+
+/* ── Tooltip / Hover Docs ───────────────────────────────── */
+.cm-tooltip {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  color: var(--text-primary) !important;
+  font-family: var(--font-mono) !important;
+  font-size: var(--font-size-sm) !important;
+  padding: var(--space-2) 0 !important;
+  max-width: 600px;
+}
+.cm-tooltip-autocomplete > ul > li {
+  padding: 3px 12px !important;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cm-tooltip-autocomplete > ul > li[aria-selected] {
+  background: var(--bg-active) !important;
+  color: var(--text-primary) !important;
+}
+.cm-completionIcon { opacity: 0.6; font-size: 10px; }
+.cm-completionLabel { flex: 1; }
+.cm-completionDetail { 
+  color: var(--text-muted);
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* ── Lint / Diagnostics ──────────────────────────────────── */
+.cm-diagnostic-error   { border-bottom: 2px solid var(--accent-red) !important; }
+.cm-diagnostic-warning { border-bottom: 2px solid var(--accent-amber) !important; }
+.cm-diagnostic-info    { border-bottom: 2px solid var(--accent-blue) !important; }
+.cm-lint-marker-error   { color: var(--accent-red); }
+.cm-lint-marker-warning { color: var(--accent-amber); }
+
+/* ── Panels (search bar, etc.) ───────────────────────────── */
+.cm-panels {
+  background: var(--bg-panel) !important;
+  border-top: 1px solid var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+.cm-panels.cm-panels-top { border-bottom: 1px solid var(--border-subtle) !important; }
+.cm-panel.cm-search { padding: 6px 10px; }
+.cm-panel input { color: var(--text-primary) !important; }
+.cm-button {
+  background: var(--bg-active) !important;
+  border-color: var(--border-default) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+}
+.cm-button:hover {
+  background: var(--bg-hover) !important;
+}
+
+/* ── Bracket Matching ────────────────────────────────────── */
+.cm-matchingBracket {
+  background: rgba(0, 212, 170, 0.15) !important;
+  outline: 1px solid rgba(0, 212, 170, 0.4) !important;
+  border-radius: 2px;
+}
+.cm-nonmatchingBracket {
+  background: rgba(239, 68, 68, 0.15) !important;
+  outline: 1px solid rgba(239, 68, 68, 0.4) !important;
+  border-radius: 2px;
+}
+
+/* ── Minimap (custom canvas overlay) ────────────────────── */
+.hd-minimap {
+  width: 80px;
+  flex-shrink: 0;
+  background: var(--bg-base);
+  border-left: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.hd-minimap canvas {
+  display: block;
+  width: 100%;
+  image-rendering: pixelated;
+}
+.hd-minimap-viewport {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  transition: top var(--transition-fast);
+}
+
+/* ── Indent Guides ───────────────────────────────────────── */
+.cm-indentationMarker {
+  border-left: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+.cm-indentationMarker.cm-activeIndentationMarker {
+  border-left-color: rgba(0, 212, 170, 0.2) !important;
+}

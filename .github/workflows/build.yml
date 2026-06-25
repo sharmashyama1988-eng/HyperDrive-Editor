@@ -1,0 +1,72 @@
+name: Build and Release HyperDrive
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Frontend Dependencies
+        run: npm install
+
+      - name: Build Frontend
+        run: npm run build
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller pywebview
+
+      - name: Compile PyInstaller Executable
+        run: pyinstaller HyperDrive.spec --clean --noconfirm
+
+      - name: Download Ollama Setup Installer
+        run: |
+          Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile "OllamaSetup.exe"
+        shell: powershell
+
+      - name: Install Ollama Silently
+        run: |
+          Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -NoNewWindow -Wait
+        shell: powershell
+
+      - name: Start Ollama Service & Pull AI Model
+        run: |
+          # Start Ollama application in background
+          Start-Process -FilePath "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama app.exe" -NoNewWindow
+          Start-Sleep -Seconds 12
+          
+          # Pull AI model for offline bundling
+          ollama pull qwen2.5-coder:1.5b
+        shell: powershell
+
+      - name: Compile Inno Setup Installer
+        run: |
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" hyperdrive_installer.iss
+        shell: powershell
+
+      - name: Upload Installer Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HyperDrive_Offline_Setup
+          path: setup_out/HyperDrive_Offline_Setup.exe
+          if-no-files-found: error

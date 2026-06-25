@@ -1,0 +1,36 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Build outputs
+dist/
+build/
+setup_out/
+out/
+bin/
+*.exe
+*.dll
+*.pdb
+*.spec
+
+# Python cache & virtualenv
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Local settings & logs
+.tauri/
+.hyperdrive/
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db

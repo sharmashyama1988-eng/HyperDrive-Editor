@@ -1,0 +1,120 @@
+/* ============================================================
+   HyperDrive Design System — CSS Custom Properties (Tokens)
+   Premium dark theme: charcoal base + neon accents
+   ============================================================ */
+
+:root {
+  /* ── Background Layers ─────────────────────────────────── */
+  --bg-void:        #080a0e;   /* Deepest background (under all panels) */
+  --bg-base:        #0d0f14;   /* Main editor background */
+  --bg-panel:       #111418;   /* Sidebars, bottom panel */
+  --bg-elevated:    #161b22;   /* Dropdowns, tooltips, modals */
+  --bg-hover:       #1e2430;   /* Hover states */
+  --bg-active:      #252d3d;   /* Active/selected item */
+  --bg-input:       #1a1f2a;   /* Input fields */
+  --bg-tab-active:  #0d0f14;   /* Active tab matches editor bg */
+  --bg-tab-inactive:#111418;   /* Inactive tab */
+
+  /* ── Text Colors ──────────────────────────────────────── */
+  --text-primary:   #e8eaf0;   /* Primary readable text */
+  --text-secondary: #8b95a8;   /* Dimmed / supporting text */
+  --text-muted:     #4a5568;   /* Very dim, hints, disabled */
+  --text-inverse:   #0d0f14;   /* Text on bright backgrounds */
+  --text-link:      #61afef;   /* Hyperlinks */
+
+  /* ── Syntax Highlight Colors ───────────────────────────── */
+  --syntax-keyword:  #c678dd;  /* Keywords: const, let, fn */
+  --syntax-string:   #98c379;  /* String literals */
+  --syntax-number:   #d19a66;  /* Numeric literals */
+  --syntax-comment:  #5c6370;  /* Comments (italic) */
+  --syntax-function: #61afef;  /* Function names */
+  --syntax-variable: #e06c75;  /* Variables */
+  --syntax-type:     #e5c07b;  /* Types, classes */
+  --syntax-operator: #56b6c2;  /* Operators */
+  --syntax-property: #abb2bf;  /* Object properties */
+  --syntax-tag:      #e06c75;  /* HTML/JSX tags */
+  --syntax-attr:     #d19a66;  /* HTML attributes */
+
+  /* ── Neon Accent System ────────────────────────────────── */
+  --accent-primary:   #00d4aa;  /* Cyan-green — primary accent */
+  --accent-secondary: #7c5cfc;  /* Purple — secondary accent */
+  --accent-blue:      #3b82f6;  /* Blue — info / links */
+  --accent-amber:     #f59e0b;  /* Amber — warnings */
+  --accent-red:       #ef4444;  /* Red — errors, destructive */
+  --accent-green:     #10b981;  /* Green — success, added lines */
+
+  /* ── Glow Effects (box-shadow accents) ────────────────── */
+  --glow-primary:   0 0 8px rgba(0, 212, 170, 0.3);
+  --glow-secondary: 0 0 8px rgba(124, 92, 252, 0.3);
+  --glow-focus:     0 0 0 2px rgba(0, 212, 170, 0.25);
+
+  /* ── Border System ─────────────────────────────────────── */
+  --border-subtle:   rgba(255, 255, 255, 0.04);  /* Barely visible dividers */
+  --border-default:  rgba(255, 255, 255, 0.08);  /* Standard borders */
+  --border-strong:   rgba(255, 255, 255, 0.15);  /* Visible borders */
+  --border-accent:   rgba(0, 212, 170, 0.4);     /* Accent-colored border */
+
+  /* ── Git Gutter Colors ─────────────────────────────────── */
+  --git-added:    #10b981;  /* Added lines (green bar) */
+  --git-modified: #f59e0b;  /* Modified lines (amber bar) */
+  --git-deleted:  #ef4444;  /* Deleted lines (red bar) */
+
+  /* ── Typography ────────────────────────────────────────── */
+  --font-mono:   "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+  --font-ui:     "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-size-xs:   11px;
+  --font-size-sm:   12px;
+  --font-size-base: 13px;
+  --font-size-md:   14px;
+  --font-size-lg:   16px;
+  --font-size-xl:   18px;
+  --line-height-code: 1.6;
+  --line-height-ui:   1.5;
+
+  /* ── Spacing Scale ─────────────────────────────────────── */
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  6px;
+  --space-4:  8px;
+  --space-5:  12px;
+  --space-6:  16px;
+  --space-7:  20px;
+  --space-8:  24px;
+  --space-9:  32px;
+  --space-10: 40px;
+
+  /* ── Layout Dimensions ─────────────────────────────────── */
+  --activity-bar-width:  48px;
+  --sidebar-width:       240px;
+  --sidebar-min-width:   150px;
+  --sidebar-max-width:   500px;
+  --status-bar-height:   22px;
+  --tab-bar-height:      35px;
+  --bottom-panel-height: 220px;
+  --titlebar-height:     30px;  /* Custom titlebar (Tauri decorations: false) */
+  --menubar-height:      28px;  /* VS Code-style application menu bar */
+
+  /* ── Transitions ────────────────────────────────────────── */
+  --transition-fast:   80ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Radius ─────────────────────────────────────────────── */
+  --radius-sm:  3px;
+  --radius-md:  6px;
+  --radius-lg:  10px;
+
+  /* ── Scrollbar ──────────────────────────────────────────── */
+  --scrollbar-size:       6px;
+  --scrollbar-thumb:      rgba(255, 255, 255, 0.12);
+  --scrollbar-thumb-hover:rgba(255, 255, 255, 0.22);
+  --scrollbar-track:      transparent;
+
+  /* ── Z-Index Scale ──────────────────────────────────────── */
+  --z-base:     0;
+  --z-above:    10;
+  --z-dropdown: 100;
+  --z-overlay:  200;
+  --z-modal:    300;
+  --z-toast:    400;
+}
