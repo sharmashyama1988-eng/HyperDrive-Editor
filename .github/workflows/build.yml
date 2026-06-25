@@ -58,23 +58,34 @@ jobs:
       - name: Install Ollama Silently
         if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          # Start installer in background without -Wait since it auto-launches GUI and hangs
+          # Start installer in background
           $proc = Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -PassThru -NoNewWindow
           Start-Sleep -Seconds 45
-          # Force kill Ollama GUI process so the installer can finish and the runner doesn't hang
-          Get-Process -Name "ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force
-          Get-Process -Name "Ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force
-          if ($proc -and -not $proc.HasExited) {
-              Stop-Process -Id $proc.Id -Force
-          }
+          # Force kill Ollama processes using taskkill to ensure installer completes cleanly
+          taskkill /F /IM "ollama*" /T 2>$null
+          taskkill /F /IM "Ollama*" /T 2>$null
+          $LastExitCode = 0
         shell: powershell
 
       - name: Start Ollama Service & Pull AI Model
         if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          Start-Process -FilePath "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama app.exe" -NoNewWindow
-          Start-Sleep -Seconds 20
+          # Kill any lingering instances first
+          taskkill /F /IM "ollama*" /T 2>$null
+          taskkill /F /IM "Ollama*" /T 2>$null
+          $LastExitCode = 0
+          Start-Sleep -Seconds 2
+          
+          # Start the server headlessly using CLI
+          Start-Process -FilePath "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama.exe" -ArgumentList "serve" -NoNewWindow
+          Start-Sleep -Seconds 15
+          
+          # Pull the required AI model
           & "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama.exe" pull qwen2.5-coder:1.5b
+          
+          # Shutdown the server cleanly
+          taskkill /F /IM "ollama*" /T 2>$null
+          $LastExitCode = 0
         shell: powershell
 
       - name: Compile Inno Setup Installer
