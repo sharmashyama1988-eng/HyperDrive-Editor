@@ -73,8 +73,8 @@ jobs:
         if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
           Start-Process -FilePath "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama app.exe" -NoNewWindow
-          Start-Sleep -Seconds 15
-          ollama pull qwen2.5-coder:1.5b
+          Start-Sleep -Seconds 20
+          & "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama.exe" pull qwen2.5-coder:1.5b
         shell: powershell
 
       - name: Compile Inno Setup Installer
