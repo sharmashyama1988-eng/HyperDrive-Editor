@@ -39,23 +39,33 @@ jobs:
       - name: Compile PyInstaller Executable
         run: pyinstaller HyperDrive.spec --clean --noconfirm
 
+      - name: Cache Ollama Cache
+        id: cache-ollama
+        uses: actions/cache@v4
+        with:
+          path: |
+            OllamaSetup.exe
+            C:\Users\runneradmin\.ollama
+            C:\Users\runneradmin\AppData\Local\Programs\Ollama
+          key: ${{ runner.os }}-ollama-v3
+
       - name: Download Ollama Setup Installer
+        if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          Invoke-WebRequest -Uri "https://ollama.com/download/OllamaSetup.exe" -OutFile "OllamaSetup.exe"
+          curl.exe -L -o OllamaSetup.exe https://ollama.com/download/OllamaSetup.exe
         shell: powershell
 
       - name: Install Ollama Silently
+        if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
           Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -NoNewWindow -Wait
         shell: powershell
 
       - name: Start Ollama Service & Pull AI Model
+        if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          # Start Ollama application in background
           Start-Process -FilePath "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama app.exe" -NoNewWindow
-          Start-Sleep -Seconds 12
-          
-          # Pull AI model for offline bundling
+          Start-Sleep -Seconds 15
           ollama pull qwen2.5-coder:1.5b
         shell: powershell
 

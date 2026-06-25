@@ -448,3 +448,28 @@
   align-items: center;
   gap: 6px;
 }
+
+/* ── Chat History Drawer ──────────────────────────────────── */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.history-session-item:hover {
+  background: var(--bg-hover) !important;
+}
+
+.history-session-item:hover .delete-session-btn {
+  opacity: 1 !important;
+  color: var(--accent-red) !important;
+}
+
+.delete-session-btn {
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.new-chat-btn:hover {
+  background: rgba(0, 212, 170, 0.1) !important;
+}
+
