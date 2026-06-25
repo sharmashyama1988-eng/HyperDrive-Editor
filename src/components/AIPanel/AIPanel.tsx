@@ -90,8 +90,9 @@ export default function AIPanel() {
     saveSessions(updated);
     
     if (currentSessionId() === id) {
-      if (updated.length > 0) {
-        selectSession(updated[0].id);
+      const first = updated[0];
+      if (first) {
+        selectSession(first.id);
       } else {
         createNewSession();
       }
@@ -187,7 +188,7 @@ export default function AIPanel() {
       try {
         const parsed = JSON.parse(savedSessions) as ChatSession[];
         setSessions(parsed);
-        if (parsed.length > 0) {
+        if (parsed.length > 0 && parsed[0]) {
           const latest = parsed[0];
           setCurrentSessionId(latest.id);
           setMessages(latest.messages);
