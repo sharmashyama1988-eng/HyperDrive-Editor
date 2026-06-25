@@ -58,7 +58,15 @@ jobs:
       - name: Install Ollama Silently
         if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -NoNewWindow -Wait
+          # Start installer in background without -Wait since it auto-launches GUI and hangs
+          $proc = Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -PassThru -NoNewWindow
+          Start-Sleep -Seconds 45
+          # Force kill Ollama GUI process so the installer can finish and the runner doesn't hang
+          Get-Process -Name "ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force
+          Get-Process -Name "Ollama*" -ErrorAction SilentlyContinue | Stop-Process -Force
+          if ($proc -and -not $proc.HasExited) {
+              Stop-Process -Id $proc.Id -Force
+          }
         shell: powershell
 
       - name: Start Ollama Service & Pull AI Model
