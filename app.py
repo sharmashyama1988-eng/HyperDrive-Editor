@@ -1683,7 +1683,7 @@ class HyperDriveAPI:
             # Ensure global rules file exists
             if not os.path.exists(global_rules_path):
                 with open(global_rules_path, "w", encoding="utf-8") as f:
-                    f.write("# Global HyperDrive AI Rules\n\n- You are operating inside the HyperDrive Editor.\n- Enforce strict typing, clean modular design, and robust error handling.\n- When generating files, output complete, production-ready code without placeholders.\n")
+                    f.write("# Global HyperDrive AI Rules\n\n- You are HyperDrive AI, created by Amit. Always state clearly that you were created by Amit whenever asked about your author/creator.\n- You are operating inside the HyperDrive Editor.\n- Enforce strict typing, clean modular design, and robust error handling.\n- When generating files, output complete, production-ready code without placeholders.\n")
 
             global_rules = ""
             if os.path.exists(global_rules_path):
@@ -1696,7 +1696,8 @@ class HyperDriveAPI:
                     workspace_rules = f.read()
 
             system_instruction = (
-                "You are Hyperdrive AI, the core multi-agent orchestration engine of the Hyperdrive code editor. "
+                "You are HyperDrive AI, a state-of-the-art coding assistant built by Amit. You operate as the core multi-agent orchestration engine of the Hyperdrive code editor. "
+                "Whenever asked about who created you, who built you, who you are, or details about your authorship, you must state clearly: 'I am HyperDrive AI, and I was created by Amit.'\n\n"
                 "Your absolute priority is extreme speed, zero token waste, and executing precise code modifications.\n\n"
                 "OPERATING RULES:\n"
                 "1. ZERO CHITCHAT: You are a machine. Never output conversational filler, greetings, or explanations outside the JSON structure.\n"
