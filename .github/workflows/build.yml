@@ -61,18 +61,18 @@ jobs:
           # Start installer in background
           $proc = Start-Process -FilePath .\OllamaSetup.exe -ArgumentList "/silent /verysilent /sp- /norestart" -PassThru -NoNewWindow
           Start-Sleep -Seconds 45
-          # Force kill Ollama processes using taskkill to ensure installer completes cleanly
-          taskkill /F /IM "ollama*" /T 2>$null
-          taskkill /F /IM "Ollama*" /T 2>$null
+          # Force kill Ollama processes using cmd to avoid PowerShell native command errors
+          cmd.exe /c "taskkill /F /IM ollama* /T 2>nul"
+          cmd.exe /c "taskkill /F /IM Ollama* /T 2>nul"
           $LastExitCode = 0
         shell: powershell
 
       - name: Start Ollama Service & Pull AI Model
         if: steps.cache-ollama.outputs.cache-hit != 'true'
         run: |
-          # Kill any lingering instances first
-          taskkill /F /IM "ollama*" /T 2>$null
-          taskkill /F /IM "Ollama*" /T 2>$null
+          # Kill any lingering instances first using cmd
+          cmd.exe /c "taskkill /F /IM ollama* /T 2>nul"
+          cmd.exe /c "taskkill /F /IM Ollama* /T 2>nul"
           $LastExitCode = 0
           Start-Sleep -Seconds 2
           
@@ -83,8 +83,8 @@ jobs:
           # Pull the required AI model
           & "C:\Users\runneradmin\AppData\Local\Programs\Ollama\ollama.exe" pull qwen2.5-coder:1.5b
           
-          # Shutdown the server cleanly
-          taskkill /F /IM "ollama*" /T 2>$null
+          # Shutdown the server cleanly using cmd
+          cmd.exe /c "taskkill /F /IM ollama* /T 2>nul"
           $LastExitCode = 0
         shell: powershell
 
