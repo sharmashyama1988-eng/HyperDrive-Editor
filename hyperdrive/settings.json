@@ -1,0 +1,43 @@
+{
+  "workbench.activityBar.visible": true,
+  "workbench.activityBar.iconSize": 22,
+  "workbench.activityBar.location": "left",
+  
+  "workbench.sideBar.visible": true,
+  "workbench.sideBar.location": "left",
+  "workbench.sideBar.width": 240,
+  "workbench.sideBar.sections": {
+    "openEditors": true,
+    "outline": true,
+    "timeline": true
+  },
+
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": true,
+  "editor.minimap.side": "right",
+  "editor.minimap.maxColumn": 80,
+  "editor.breadcrumbs.enabled": true,
+  "editor.multiCursorModifier": "alt",
+  "editor.lineNumbers": "on",
+  "editor.fontSize": 13,
+  "editor.fontFamily": "'JetBrains Mono', 'Fira Code', monospace",
+  "editor.lineHeight": 1.6,
+
+  "workbench.panel.visible": false,
+  "workbench.panel.location": "bottom",
+  "workbench.panel.defaultHeight": 500,
+  "workbench.panel.activeTab": "terminal",
+
+  "workbench.statusBar.visible": true,
+  "workbench.statusBar.gitBranch": true,
+  "workbench.statusBar.feedbackCounters": true,
+  "workbench.statusBar.lineCol": true,
+
+  "workbench.zenMode.enabled": false,
+  "workbench.zenMode.hideActivityBar": false,
+  "workbench.zenMode.hideStatusBar": true,
+  "workbench.zenMode.hideSideBar": true,
+  "workbench.zenMode.fullScreen": true,
+  "workbench.commandPalette.historyLimit": 50
+}

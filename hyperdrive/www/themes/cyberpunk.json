@@ -1,0 +1,32 @@
+{
+  "name": "cyberpunk",
+  "editor": {
+    "base": "vs-dark",
+    "inherit": true,
+    "rules": [
+      { "token": "comment", "foreground": "00ffcc", "fontStyle": "italic" },
+      { "token": "keyword", "foreground": "ff0055" },
+      { "token": "string", "foreground": "fcee0a" },
+      { "token": "identifier", "foreground": "00e6ff" },
+      { "token": "number", "foreground": "ff00a0" }
+    ],
+    "colors": {
+      "editor.background": "#09090b",
+      "editor.foreground": "#e0e0e0",
+      "editor.lineHighlightBackground": "#171720",
+      "editorCursor.foreground": "#fcee0a",
+      "editor.selectionBackground": "#ff005540"
+    }
+  },
+  "ui": {
+    "--bg-dark": "#09090b",
+    "--bg-panel": "#111116",
+    "--bg-sidebar": "#0d0d12",
+    "--accent": "#fcee0a",
+    "--accent-hover": "#ff0055",
+    "--text-main": "#ffffff",
+    "--text-muted": "#00ffcc",
+    "--border": "#222233",
+    "--titlebar-bg": "#050507"
+  }
+}
