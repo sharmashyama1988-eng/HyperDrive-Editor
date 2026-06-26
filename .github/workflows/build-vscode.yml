@@ -28,17 +28,17 @@ jobs:
         run: corepack enable
 
       - name: Install Dependencies
-        working-directory: ./"vs code"
+        working-directory: vs code
         run: yarn install
 
       - name: Compile and Build Editor
-        working-directory: ./"vs code"
+        working-directory: vs code
         # Using vscode-win32-x64-min to create the OSS minified build
         run: yarn gulp vscode-win32-x64-min
         
       - name: Zip Compiled Editor
         run: Compress-Archive -Path "../VSCode-win32-x64/*" -DestinationPath "../HyperDrive-Editor.zip"
-        working-directory: ./"vs code"
+        working-directory: vs code
 
       - name: Upload Compiled Editor
         uses: actions/upload-artifact@v4
