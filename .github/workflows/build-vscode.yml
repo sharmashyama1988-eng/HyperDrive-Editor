@@ -3,8 +3,8 @@ name: Compile HyperDrive Editor
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'vs code/**'
+
+
   workflow_dispatch: # Allows manual trigger from GitHub UI
 
 jobs:
